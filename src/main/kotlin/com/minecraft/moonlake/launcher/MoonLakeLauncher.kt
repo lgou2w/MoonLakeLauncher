@@ -12,6 +12,14 @@ import javafx.stage.Stage
 
 class MoonLakeLauncher: Application() {
 
+    companion object {
+        fun launch(args: Array<String>?) {
+            if(args == null)
+                throw NullPointerException("Null is args.")
+            launch(MoonLakeLauncher::class.java, *args)
+        }
+    }
+
     override fun start(stage: Stage?) {
         val rootPane = BorderPane()
         val flowPane = FlowPane(10.0, 10.0)
