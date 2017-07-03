@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.minecraft.moonlake.launcher.layout.MuiStackPane?>
+<?import com.minecraft.moonlake.launcher.layout.MuiFlowPane?>
+<?import com.minecraft.moonlake.launcher.layout.MuiVBox?>
+<?import com.minecraft.moonlake.launcher.control.MuiButton?>
+
+<MuiStackPane
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:id="root"
+        fx:controller="com.minecraft.moonlake.launcher.ui.Test">
+
+    <MuiFlowPane alignment="CENTER">
+        <MuiVBox spacing="20">
+            <MuiButton type="RAISED" prefWidth="150" styleClass="mui-button-primary">Material-UI Button</MuiButton>
+        </MuiVBox>
+    </MuiFlowPane>
+
+</MuiStackPane>

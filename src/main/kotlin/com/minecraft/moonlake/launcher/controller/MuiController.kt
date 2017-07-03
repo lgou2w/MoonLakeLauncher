@@ -15,25 +15,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher
+package com.minecraft.moonlake.launcher.controller
 
-import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
-import javafx.application.Application
-import javafx.stage.Stage
+import com.minecraft.moonlake.launcher.util.ClassUtils
+import javafx.fxml.FXML
+import javafx.fxml.Initializable
+import javafx.scene.layout.Pane
+import java.net.URL
+import java.util.*
 
-class MoonLakeLauncher: Application() {
+abstract class MuiController<out T: Pane>: Initializable {
 
-    companion object {
-        fun launch(args: Array<String>) {
-            launch(MoonLakeLauncher::class.java, *args)
-        }
-    }
+    @FXML private var root: T? = null
 
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
+    protected fun root(): T
+            = root!!
+
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
+        root().stylesheets.add(ClassUtils.loadResourceAsString(this::class, "css/mui-fonts.css"))
+        root().stylesheets.add(ClassUtils.loadResourceAsString(this::class, "css/mui-components.css"))
     }
 }

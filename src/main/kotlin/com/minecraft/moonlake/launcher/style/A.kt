@@ -15,25 +15,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher
+package com.minecraft.moonlake.launcher.style
 
-import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
-import javafx.application.Application
-import javafx.stage.Stage
 
-class MoonLakeLauncher: Application() {
+import com.minecraft.moonlake.launcher.control.MuiButton
+import javafx.css.CssMetaData
+import javafx.css.StyleableProperty
+import javafx.scene.paint.Paint
 
-    companion object {
-        fun launch(args: Array<String>) {
-            launch(MoonLakeLauncher::class.java, *args)
+class A {
+
+    private object Style {
+        private val A = object : CssMetaData<MuiButton, Paint>("", null, null) {
+            override fun isSettable(styleable: MuiButton): Boolean {
+                return false
+            }
+
+            override fun getStyleableProperty(styleable: MuiButton): StyleableProperty<Paint>? {
+                return null
+            }
         }
-    }
-
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
     }
 }

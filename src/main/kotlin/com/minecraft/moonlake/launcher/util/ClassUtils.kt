@@ -15,25 +15,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher
+package com.minecraft.moonlake.launcher.util
 
-import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
-import javafx.application.Application
-import javafx.stage.Stage
+import java.io.InputStream
+import java.net.URL
+import kotlin.reflect.KClass
 
-class MoonLakeLauncher: Application() {
+class ClassUtils private constructor() {
 
     companion object {
-        fun launch(args: Array<String>) {
-            launch(MoonLakeLauncher::class.java, *args)
-        }
-    }
 
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
+        fun loadResource(kClazz: KClass<*>, name: String): URL
+                = kClazz.java.classLoader.getResource(name)
+
+        fun loadResourceAsString(kClazz: KClass<*>, name: String): String
+                = loadResource(kClazz, name).toExternalForm()
+
+        fun loadResourceAsInputStream(kClazz: KClass<*>, name: String): InputStream
+                = loadResource(kClazz, name).openStream()
     }
 }

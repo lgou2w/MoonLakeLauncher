@@ -1,0 +1,38 @@
+/**
+ * Material UI Components Cascading Style Sheets
+ *
+ * @version 1.0
+ * @author Month_Light
+ */
+
+.root {
+    -fx-font-family: "Roboto";
+}
+
+/**************************************************************************
+ *
+ * Mui Rippler
+ *
+ **************************************************************************/
+
+.mui-rippler:hover {
+    -fx-cursor: hand;
+}
+
+/**************************************************************************
+ *
+ * Mui Button
+ *
+ **************************************************************************/
+
+.mui-button {
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: .7em .57em;
+}
+
+.mui-button-primary {
+    -fx-text-fill: white;
+    -fx-background-color: #4285F4;
+}

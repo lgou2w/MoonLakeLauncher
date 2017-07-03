@@ -15,25 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher
+package com.minecraft.moonlake.launcher.animation.direction
 
-import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
-import javafx.application.Application
-import javafx.stage.Stage
+interface Direction {
 
-class MoonLakeLauncher: Application() {
-
-    companion object {
-        fun launch(args: Array<String>) {
-            launch(MoonLakeLauncher::class.java, *args)
-        }
+    enum class Type {
+        LEFT, RIGHT, TOP, BOTTOM, CENTER
     }
 
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
-    }
+    fun getType(): Type
 }

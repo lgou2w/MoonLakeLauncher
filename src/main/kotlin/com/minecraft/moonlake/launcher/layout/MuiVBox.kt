@@ -15,25 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher
+package com.minecraft.moonlake.launcher.layout
 
-import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
-import javafx.application.Application
-import javafx.stage.Stage
+import javafx.scene.Node
+import javafx.scene.layout.VBox
 
-class MoonLakeLauncher: Application() {
+open class MuiVBox: VBox {
 
-    companion object {
-        fun launch(args: Array<String>) {
-            launch(MoonLakeLauncher::class.java, *args)
-        }
-    }
+    constructor() : super()
+    constructor(spacing: Double) : super(spacing)
+    constructor(vararg children: Node?) : super(*children)
+    constructor(spacing: Double, vararg children: Node?) : super(spacing, *children)
 
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
+    init {
     }
 }
