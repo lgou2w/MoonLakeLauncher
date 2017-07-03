@@ -134,14 +134,14 @@ produce the work, or an object code interpreter used to run it.
   The "Corresponding Source" for a work in object code form means all
 the source code needed to generate, install, and (for an executable
 work) run the object code and to modify the work, including scripts to
-node those activities.  However, it does not include the work's
+control those activities.  However, it does not include the work's
 System Libraries, or general-purpose tools or generally available free
 programs which are used unmodified in performing those activities but
 which are not part of the work.  For example, Corresponding Source
 includes interface definition files associated with source files for
 the work, and the source code for shared libraries and dynamically
 linked subprograms that the work is specifically designed to require,
-such as by intimate data communication or node flow between those
+such as by intimate data communication or control flow between those
 subprograms and other parts of the work.
 
   The Corresponding Source need not include anything that users
@@ -167,9 +167,9 @@ in force.  You may convey covered works to others for the sole purpose
 of having them make modifications exclusively for you, or provide you
 with facilities for running those works, provided that you comply with
 the terms of this License in conveying all material for which you do
-not node copyright.  Those thus making or running the covered works
+not control copyright.  Those thus making or running the covered works
 for you must do so exclusively on your behalf, under your direction
-and node, on terms that prohibit them from making any copies of
+and control, on terms that prohibit them from making any copies of
 your copyrighted material outside their relationship with you.
 
   Conveying under any other circumstances is permitted solely under
@@ -450,7 +450,7 @@ receives a license from the original licensors, to run, modify and
 propagate that work, subject to this License.  You are not responsible
 for enforcing compliance by third parties with this License.
 
-  An "entity transaction" is a transaction transferring node of an
+  An "entity transaction" is a transaction transferring control of an
 organization, or substantially all assets of one, or subdividing an
 organization, or merging organizations.  If propagation of a covered
 work results from an entity transaction, each party to that
@@ -480,7 +480,7 @@ hereafter acquired, that would be infringed by some manner, permitted
 by this License, of making, using, or selling its contributor version,
 but do not include claims that would be infringed only as a
 consequence of further modification of the contributor version.  For
-purposes of this definition, "node" includes the right to grant
+purposes of this definition, "control" includes the right to grant
 patent sublicenses in a manner consistent with the requirements of
 this License.
 
