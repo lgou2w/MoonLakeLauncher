@@ -28,11 +28,128 @@
 .mui-button {
     -fx-text-fill: black;
     -fx-font-size: 14px;
-    -fx-font-family: "Roboto Medium";
+    -fx-font-family: "Roboto Regular";
     -fx-padding: .7em .57em;
+    -fx-text-alignment: center;
 }
+
+/**************************************************************************
+ *
+ * Mui Button Background Style
+ *
+ **************************************************************************/
 
 .mui-button-primary {
     -fx-text-fill: white;
-    -fx-background-color: #4285F4;
+    -fx-background-color: #4285f4;
+}
+
+.mui-button-default {
+    -fx-text-fill: white;
+    -fx-background-color: #2bbbad;
+}
+
+.mui-button-secondary {
+    -fx-text-fill: white;
+    -fx-background-color: #aa66cc;
+}
+
+.mui-button-success {
+    -fx-text-fill: white;
+    -fx-background-color: #00c851;
+}
+
+.mui-button-info {
+    -fx-text-fill: white;
+    -fx-background-color: #33b5e5;
+}
+
+.mui-button-warning {
+    -fx-text-fill: white;
+    -fx-background-color: #ff8800;
+}
+
+.mui-button-danger {
+    -fx-text-fill: white;
+    -fx-background-color: #cc0000;
+}
+
+.mui-button-elegant {
+    -fx-text-fill: white;
+    -fx-background-color: #2e2e2e;
+}
+
+.mui-button-unique {
+    -fx-text-fill: white;
+    -fx-background-color: #1c2331;
+}
+
+.mui-button-pink {
+    -fx-text-fill: white;
+    -fx-background-color: #e91e63;
+}
+
+.mui-button-purple {
+    -fx-text-fill: white;
+    -fx-background-color: #4a148c;
+}
+
+.mui-button-deep-purple {
+    -fx-text-fill: white;
+    -fx-background-color: #311b92;
+}
+
+.mui-button-indigo {
+    -fx-text-fill: white;
+    -fx-background-color: #1a237e;
+}
+
+.mui-button-cyan {
+    -fx-text-fill: white;
+    -fx-background-color: #00acc1;
+}
+
+.mui-button-light-green {
+    -fx-text-fill: white;
+    -fx-background-color: #7cb342;
+}
+
+.mui-button-lime {
+    -fx-text-fill: white;
+    -fx-background-color: #afb42b;
+}
+
+.mui-button-yellow {
+    -fx-text-fill: white;
+    -fx-background-color: #fbc02d;
+}
+
+.mui-button-amber {
+    -fx-text-fill: white;
+    -fx-background-color: #ff6f00;
+}
+
+.mui-button-orange {
+    -fx-text-fill: white;
+    -fx-background-color: #e65100;
+}
+
+.mui-button-deep-orange {
+    -fx-text-fill: white;
+    -fx-background-color: #be360c;
+}
+
+.mui-button-brown {
+    -fx-text-fill: white;
+    -fx-background-color: #6d4c41;
+}
+
+.mui-button-blue-grey {
+    -fx-text-fill: white;
+    -fx-background-color: #607d8b;
+}
+
+.mui-button-dark-green {
+    -fx-text-fill: white;
+    -fx-background-color: #007e33;
 }

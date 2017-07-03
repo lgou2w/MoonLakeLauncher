@@ -34,6 +34,7 @@ import javafx.scene.layout.Background
 import javafx.scene.layout.BackgroundFill
 import javafx.scene.layout.CornerRadii
 import javafx.scene.paint.Color
+import javafx.util.Duration
 import java.util.concurrent.Callable
 
 open class MuiButtonSkin : ButtonSkin {
@@ -221,7 +222,7 @@ open class MuiButtonSkin : ButtonSkin {
         when(type) {
             MuiButton.Type.RAISED -> {
                 MuiDepthUtils.setNodeDepth(muiButtonContainer, 1)
-                depthAnimation = MuiButtonDepthTransition(muiButtonContainer, 1, 2)
+                depthAnimation = MuiButtonDepthTransition(muiButtonContainer, 1, 3, Duration.seconds(.1))
             }
             MuiButton.Type.FLAT -> {
                 muiButtonContainer.effect = null
