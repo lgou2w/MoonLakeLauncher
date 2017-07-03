@@ -23,37 +23,46 @@ import javafx.scene.effect.BlurType
 import javafx.scene.effect.DropShadow
 import javafx.scene.paint.Color
 
-class MuiDepthUtils private constructor() {
+object MuiDepthUtils {
 
-    companion object {
+    /**************************************************************************
+     *
+     * Private Implements
+     *
+     **************************************************************************/
 
-        private val depth: Array<DropShadow> = arrayOf(
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .0), .0, .0, .0, .0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 10.0, .12, -1.0, 2.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 12.5, .16, .0, 3.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 15.0, .16, .0, 4.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 17.5, .16, .0, 5.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 20.0, .19, .0, 6.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 22.5, .19, .0, 7.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 25.0, .25, .0, 8.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 27.5, .25, .0, 9.0),
-                DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 30.0, .30, .0, 10.0))
+    private val depth: Array<DropShadow> = arrayOf(
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .0), .0, .0, .0, .0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 10.0, .12, -1.0, 2.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 12.5, .16, .0, 3.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 15.0, .16, .0, 4.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 17.5, .16, .0, 5.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 20.0, .19, .0, 6.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 22.5, .19, .0, 7.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 25.0, .25, .0, 8.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 27.5, .25, .0, 9.0),
+            DropShadow(BlurType.GAUSSIAN, Color.rgb(0, 0, 0, .26), 30.0, .30, .0, 10.0))
 
-        private fun safeLevel(level: Int): Int
-                = if(level < 0) 0 else if(level >= depth.size) depth.size - 1 else level
+    private fun safeLevel(level: Int): Int
+            = if(level < 0) 0 else if(level >= depth.size) depth.size - 1 else level
 
-        fun getShadowAt(level: Int): DropShadow
-                = depth[safeLevel(level)]
+    /**************************************************************************
+     *
+     * Public API
+     *
+     **************************************************************************/
 
-        fun setNodeDepth(node: Node, level: Int) {
-            val depth = depth[safeLevel(level)]
-            node.effect = DropShadow(BlurType.GAUSSIAN, depth.color, depth.radius, depth.spread, depth.offsetX, depth.offsetY)
-        }
+    fun getShadowAt(level: Int): DropShadow
+            = depth[safeLevel(level)]
 
-        fun createNodeDepth(node: Node, level: Int): Node {
-            val container = MuiPane(node)
-            setNodeDepth(container, level)
-            return container
-        }
+    fun setNodeDepth(node: Node, level: Int) {
+        val depth = depth[safeLevel(level)]
+        node.effect = DropShadow(BlurType.GAUSSIAN, depth.color, depth.radius, depth.spread, depth.offsetX, depth.offsetY)
+    }
+
+    fun createNodeDepth(node: Node, level: Int): Node {
+        val container = MuiPane(node)
+        setNodeDepth(container, level)
+        return container
     }
 }

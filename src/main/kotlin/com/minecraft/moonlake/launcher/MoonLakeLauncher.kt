@@ -24,11 +24,23 @@ import javafx.stage.Stage
 
 class MoonLakeLauncher: Application() {
 
+    /**************************************************************************
+     *
+     * Static
+     *
+     **************************************************************************/
+
     companion object {
         fun launch(args: Array<String>) {
             launch(MoonLakeLauncher::class.java, *args)
         }
     }
+
+    /**************************************************************************
+     *
+     * Override Implements
+     *
+     **************************************************************************/
 
     override fun start(stage: Stage) {
         stage.scene = MuiControllerUtils.loadControllerScene(Test::class)

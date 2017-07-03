@@ -17,6 +17,12 @@
 
 package com.minecraft.moonlake.launcher
 
+/**************************************************************************
+ *
+ * Main Method
+ *
+ **************************************************************************/
+
 fun main(args: Array<String>) {
     MoonLakeLauncher.launch(args)
 }

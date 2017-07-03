@@ -20,28 +20,31 @@ package com.minecraft.moonlake.launcher.util
 import javafx.scene.layout.Background
 import javafx.scene.text.Font
 
-class MuiUtils private constructor() {
+object MuiUtils {
 
-    companion object {
+    /**************************************************************************
+     *
+     * Public API
+     *
+     **************************************************************************/
 
-        fun getRobotoFont(size: Double = 12.0): Font
-                = Font("Roboto", size)
+    fun getRobotoFont(size: Double = 12.0): Font
+            = Font("Roboto", size)
 
-        fun isDefaultBackground(background: Background): Boolean {
-            try {
-                val firstFill = background.fills[0].fill.toString()
-                return "0xffffffba" == firstFill || "0xffffffbf" == firstFill || "0xffffffbd" == firstFill
-            } catch (e: Exception) {
-                return false
-            }
+    fun isDefaultBackground(background: Background): Boolean {
+        try {
+            val firstFill = background.fills[0].fill.toString()
+            return "0xffffffba" == firstFill || "0xffffffbf" == firstFill || "0xffffffbd" == firstFill
+        } catch (e: Exception) {
+            return false
         }
+    }
 
-        fun isDefaultClickedBackground(background: Background): Boolean {
-            try {
-                return "0x039ed3ff" == background.fills[0].fill.toString()
-            } catch (e: Exception) {
-                return false
-            }
+    fun isDefaultClickedBackground(background: Background): Boolean {
+        try {
+            return "0x039ed3ff" == background.fills[0].fill.toString()
+        } catch (e: Exception) {
+            return false
         }
     }
 }

@@ -21,17 +21,14 @@ import java.io.InputStream
 import java.net.URL
 import kotlin.reflect.KClass
 
-class ClassUtils private constructor() {
+object ClassUtils {
 
-    companion object {
+    fun loadResource(kClazz: KClass<*>, name: String): URL
+            = kClazz.java.classLoader.getResource(name)
 
-        fun loadResource(kClazz: KClass<*>, name: String): URL
-                = kClazz.java.classLoader.getResource(name)
+    fun loadResourceAsString(kClazz: KClass<*>, name: String): String
+            = loadResource(kClazz, name).toExternalForm()
 
-        fun loadResourceAsString(kClazz: KClass<*>, name: String): String
-                = loadResource(kClazz, name).toExternalForm()
-
-        fun loadResourceAsInputStream(kClazz: KClass<*>, name: String): InputStream
-                = loadResource(kClazz, name).openStream()
-    }
+    fun loadResourceAsInputStream(kClazz: KClass<*>, name: String): InputStream
+            = loadResource(kClazz, name).openStream()
 }
