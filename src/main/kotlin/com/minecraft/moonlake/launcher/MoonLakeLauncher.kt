@@ -43,7 +43,7 @@ class MoonLakeLauncher: Application() {
      **************************************************************************/
 
     override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class)
+        stage.scene = MuiControllerUtils.loadControllerScene(Test::class.java)
         stage.title = "MoonLake Launcher"
         stage.centerOnScreen()
         stage.show()
