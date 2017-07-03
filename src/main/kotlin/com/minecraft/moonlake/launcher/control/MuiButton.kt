@@ -19,14 +19,8 @@ package com.minecraft.moonlake.launcher.control
 
 import com.minecraft.moonlake.launcher.control.wrapped.NoneFocusButton
 import com.minecraft.moonlake.launcher.skin.MuiButtonSkin
-import com.sun.javafx.css.StyleConverterImpl
-import com.sun.javafx.css.converters.PaintConverter
 import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleObjectProperty
-import javafx.css.CssMetaData
-import javafx.css.SimpleStyleableObjectProperty
-import javafx.css.StyleableObjectProperty
-import javafx.css.StyleableProperty
 import javafx.scene.Node
 import javafx.scene.control.Skin
 import javafx.scene.paint.Paint
@@ -94,15 +88,4 @@ open class MuiButton: NoneFocusButton {
 
     fun setRipplerFill(ripplerFill: Paint)
             = this.ripplerFill.set(ripplerFill)
-
-    /**************************************************************************
-     *
-     * Stylesheet Handling
-     *
-     **************************************************************************/
-
-    private class StyleableProperties {
-        companion object {
-        }
-    }
 }
