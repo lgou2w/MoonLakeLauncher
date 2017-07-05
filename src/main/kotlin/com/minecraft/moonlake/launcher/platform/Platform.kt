@@ -51,8 +51,14 @@ enum class Platform(private val separator: Char, private val osName: String) {
 
     enum class Bit {
 
-        BIT32,
-        BIT64,
+        BIT32 {
+            override fun toString(): String
+                    = "32"
+        },
+        BIT64 {
+            override fun toString(): String
+                    = "64"
+        },
         ;
     }
 
@@ -110,5 +116,14 @@ enum class Platform(private val separator: Char, private val osName: String) {
     fun getSeparator(): Char
             = separator
     fun getOSName(): String
+            = osName
+
+    /**************************************************************************
+     *
+     * Override Implements
+     *
+     **************************************************************************/
+
+    override fun toString(): String
             = osName
 }
