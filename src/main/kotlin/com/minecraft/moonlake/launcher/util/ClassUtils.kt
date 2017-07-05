@@ -23,12 +23,15 @@ import kotlin.reflect.KClass
 
 object ClassUtils {
 
+    @JvmStatic
     fun loadResource(kClazz: KClass<*>, name: String): URL
             = kClazz.java.classLoader.getResource(name)
 
+    @JvmStatic
     fun loadResourceAsString(kClazz: KClass<*>, name: String): String
             = loadResource(kClazz, name).toExternalForm()
 
+    @JvmStatic
     fun loadResourceAsInputStream(kClazz: KClass<*>, name: String): InputStream
             = loadResource(kClazz, name).openStream()
 }

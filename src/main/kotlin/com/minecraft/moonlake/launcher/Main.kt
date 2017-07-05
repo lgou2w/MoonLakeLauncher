@@ -15,6 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+@file:JvmName("Main")
+
 package com.minecraft.moonlake.launcher
 
 /**************************************************************************

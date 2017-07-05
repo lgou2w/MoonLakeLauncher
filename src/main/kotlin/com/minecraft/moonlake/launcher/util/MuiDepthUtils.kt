@@ -52,14 +52,17 @@ object MuiDepthUtils {
      *
      **************************************************************************/
 
+    @JvmStatic
     fun getShadowAt(level: Int): DropShadow
             = depth[safeLevel(level)]
 
+    @JvmStatic
     fun setNodeDepth(node: Node, level: Int) {
         val depth = depth[safeLevel(level)]
         node.effect = DropShadow(BlurType.GAUSSIAN, depth.color, depth.radius, depth.spread, depth.offsetX, depth.offsetY)
     }
 
+    @JvmStatic
     fun createNodeDepth(node: Node, level: Int): Node {
         val container = MuiPane(node)
         setNodeDepth(container, level)

@@ -18,14 +18,8 @@
 package com.minecraft.moonlake.launcher.ui
 
 import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
-import com.minecraft.moonlake.launcher.control.MuiButton
 import com.minecraft.moonlake.launcher.controller.MuiController
-import com.minecraft.moonlake.launcher.layout.MuiPane
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
-import javafx.fxml.FXML
-import javafx.scene.layout.Background
-import javafx.scene.layout.BackgroundFill
-import javafx.scene.paint.Color
 import java.net.URL
 import java.util.ResourceBundle
 

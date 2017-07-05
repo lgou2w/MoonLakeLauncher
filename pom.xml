@@ -56,7 +56,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>false</addClasspath>
-                            <mainClass>com.minecraft.moonlake.launcher.MainKt</mainClass>
+                            <mainClass>com.minecraft.moonlake.launcher.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -83,7 +83,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>false</addClasspath>
-                            <mainClass>com.minecraft.moonlake.launcher.MainKt</mainClass>
+                            <mainClass>com.minecraft.moonlake.launcher.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

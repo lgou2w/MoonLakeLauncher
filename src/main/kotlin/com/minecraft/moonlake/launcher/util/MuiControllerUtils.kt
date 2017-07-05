@@ -5,10 +5,11 @@ import com.minecraft.moonlake.launcher.controller.MuiController
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.Pane
-import kotlin.reflect.KClass
 
 object MuiControllerUtils {
 
+    @JvmStatic
+    @Throws(IllegalArgumentException::class)
     fun <P: Pane, T: MuiController<P>> loadControllerPane(clazz: Class<T>): P {
         val muiControllerFxml = clazz.getAnnotation(MuiControllerFxml::class.java)
         if(muiControllerFxml != null)
@@ -16,6 +17,8 @@ object MuiControllerUtils {
         throw IllegalArgumentException("参数控制器类没有被 MuiControllerFxml 注解.")
     }
 
+    @JvmStatic
+    @Throws(IllegalArgumentException::class)
     fun <P: Pane, T: MuiController<P>> loadControllerScene(clazz: Class<T>): Scene {
         val muiControllerFxml = clazz.getAnnotation(MuiControllerFxml::class.java)
         if(muiControllerFxml != null && (muiControllerFxml.width > .0 || muiControllerFxml.height > .0))

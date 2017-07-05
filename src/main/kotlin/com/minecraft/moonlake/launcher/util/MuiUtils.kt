@@ -28,9 +28,11 @@ object MuiUtils {
      *
      **************************************************************************/
 
+    @JvmStatic
     fun getRobotoFont(size: Double = 12.0): Font
             = Font("Roboto", size)
 
+    @JvmStatic
     fun isDefaultBackground(background: Background): Boolean {
         try {
             val firstFill = background.fills[0].fill.toString()
@@ -40,6 +42,7 @@ object MuiUtils {
         }
     }
 
+    @JvmStatic
     fun isDefaultClickedBackground(background: Background): Boolean {
         try {
             return "0x039ed3ff" == background.fills[0].fill.toString()
