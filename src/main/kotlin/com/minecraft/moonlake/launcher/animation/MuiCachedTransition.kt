@@ -41,13 +41,13 @@ open class MuiCachedTransition(node: Node, timeline: Timeline, vararg muiCachedM
         }}
     }
 
-    protected fun starting() {
+    open protected fun starting() {
         nodeCachedMoment = MuiCachedMoment(node)
         nodeCachedMoment!!.cached()
         moments.iterator().forEach { moment -> moment.cached() }
     }
 
-    protected fun stopping() {
+    open protected fun stopping() {
         nodeCachedMoment!!.restore()
         moments.iterator().forEach { moment -> moment.restore() }
     }

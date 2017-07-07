@@ -19,6 +19,6 @@ package com.minecraft.moonlake.launcher.animation
 
 import javafx.animation.Transition
 
-abstract class MuiTransition(): Transition() {
+abstract class MuiTransition: Transition() {
 
 }
