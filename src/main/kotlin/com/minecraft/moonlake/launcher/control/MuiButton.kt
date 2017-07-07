@@ -17,15 +17,15 @@
 
 package com.minecraft.moonlake.launcher.control
 
-import com.minecraft.moonlake.launcher.control.wrapped.NoneFocusButton
 import com.minecraft.moonlake.launcher.skin.MuiButtonSkin
 import javafx.beans.property.ObjectProperty
 import javafx.beans.property.SimpleObjectProperty
 import javafx.scene.Node
+import javafx.scene.control.Button
 import javafx.scene.control.Skin
 import javafx.scene.paint.Paint
 
-open class MuiButton: NoneFocusButton {
+open class MuiButton: Button {
 
     /**************************************************************************
      *
@@ -47,6 +47,7 @@ open class MuiButton: NoneFocusButton {
     constructor(text: String, graphic: Node): super(text, graphic)
 
     init {
+        isFocusTraversable = false
         styleClass.add("mui-button")
     }
 
