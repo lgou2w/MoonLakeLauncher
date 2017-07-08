@@ -17,14 +17,20 @@
 
 package com.minecraft.moonlake.launcher.util
 
+import javafx.application.Platform
 import javafx.scene.layout.Background
 import javafx.scene.text.Font
+import java.io.Closeable
+import java.io.File
+import java.io.IOException
+import java.text.DecimalFormat
+import java.util.concurrent.CountDownLatch
 
 object MuiUtils {
 
     /**************************************************************************
      *
-     * Public API
+     * JavaFx Utils
      *
      **************************************************************************/
 
@@ -50,4 +56,76 @@ object MuiUtils {
             return false
         }
     }
+
+    /**************************************************************************
+     *
+     * Thread Runnable Util
+     *
+     **************************************************************************/
+
+    @JvmStatic
+    fun runInFx(runnable: Runnable) {
+        if(Platform.isFxApplicationThread()) {
+            runnable.run()
+            return
+        }
+        Platform.runLater(runnable)
+    }
+
+    @JvmStatic
+    fun runInFxWait(runnable: Runnable) {
+        if(Platform.isFxApplicationThread()) {
+            runnable.run()
+            return
+        }
+        val doneLatch = CountDownLatch(1)
+        Platform.runLater({
+            try {
+                runnable.run()
+            } finally {
+                doneLatch.countDown()
+            }
+        })
+        try {
+            doneLatch.await()
+        } catch (e: InterruptedException) {
+            Thread.currentThread().interrupt()
+        }
+    }
+
+    @JvmStatic
+    fun runInFxLater(runnable: Runnable) {
+        Platform.runLater(runnable)
+    }
+
+    /**************************************************************************
+     *
+     * Io Util
+     *
+     **************************************************************************/
+
+    @JvmStatic
+    fun makeDirectory(parent: File): Boolean
+            = parent.isDirectory || parent.mkdirs()
+
+    @JvmStatic
+    fun closeable(vararg closeables: Closeable?) {
+        try {
+            closeables.forEach { it?.close() }
+        } catch (e: IOException) {
+        }
+    }
+
+    /**************************************************************************
+     *
+     * String Util
+     *
+     **************************************************************************/
+
+    @JvmStatic
+    internal val ROUNDING = DecimalFormat("#.00")
+
+    @JvmStatic
+    fun rounding(value: Double): String
+            = ROUNDING.format(value)
 }
