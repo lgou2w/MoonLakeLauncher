@@ -15,18 +15,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.download
+package com.minecraft.moonlake.launcher.task
 
-class MojangDownloadProvider: DownloadProvider {
+import javafx.concurrent.Task
 
-    override fun getLibrariesDownloadURL(): String
-            = "https://libraries.minecraft.net"
-    override fun getVersionsDownloadURL(): String
-            = "http://s3.amazonaws.com/Minecraft.Download/versions/"
-    override fun getIndexesDownloadURL(): String
-            = "http://s3.amazonaws.com/Minecraft.Download/indexes/"
-    override fun getVersionListDownloadURL(): String
-            = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
-    override fun getAssetsDownloadURL(): String
-            = "http://resources.download.minecraft.net/"
+abstract class MuiTask<V>: Task<V>() {
+
+    /**************************************************************************
+     *
+     * Overridable API
+     *
+     **************************************************************************/
+
+    protected open fun succeeded(result: V) {}
+
+    /**************************************************************************
+     *
+     * Override Implements
+     *
+     **************************************************************************/
+
+    final override fun succeeded()
+            = succeeded(value)
 }

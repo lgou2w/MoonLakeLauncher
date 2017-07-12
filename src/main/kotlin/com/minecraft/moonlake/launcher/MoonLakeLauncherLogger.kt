@@ -15,17 +15,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.download
+package com.minecraft.moonlake.launcher
 
-interface DownloadProvider {
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.logging.*
+import java.util.logging.Formatter
 
-    fun getLibrariesDownloadURL(): String
+class MoonLakeLauncherLogger {
 
-    fun getVersionsDownloadURL(): String
+    private val dateFormat = SimpleDateFormat("HH:mm:ss")
 
-    fun getIndexesDownloadURL(): String
+    private fun log(type: String, message: String)
+            = println("[${dateFormat.format(Date())}] [${Thread.currentThread().name}/$type] [MoonLakeLauncher]: $message")
 
-    fun getVersionListDownloadURL(): String
-
-    fun getAssetsDownloadURL(): String
+    fun debug(message: String)
+            = log("DEBUG", message)
+    fun info(message: String)
+            = log("INFO", message)
+    fun warn(message: String)
+            = log("WARN", message)
+    fun severe(message: String)
+            = log("SEVERE", message)
 }

@@ -6,7 +6,7 @@
  */
 
 .root {
-    -fx-font-family: "Roboto";
+    -fx-font-family: "Ubuntu", "Microsoft YaHei";
 }
 
 /**************************************************************************
@@ -21,6 +21,50 @@
 
 /**************************************************************************
  *
+ * Mui Text Field
+ *
+ **************************************************************************/
+
+.mui-text-field {
+    -fx-font-family: "Ubuntu", "Microsoft YaHei";
+    -fx-font-weight: bold;
+    -fx-alignment: top-left;
+    -fx-max-width: 300px;
+    -fx-pref-width: 300px;
+    -fx-prompt-text-fill: #808080;
+    -fx-background-color: transparent;
+    -mui-focus-color: #4285f4;
+    -mui-unfocus-color: #cccccc;
+}
+
+.mui-text-field:error {
+    -mui-focus-color: #d34336;
+    -mui-unfocus-color: #d34336;
+}
+
+.mui-text-field .error-label {
+    -fx-fill: #d34336;
+    -fx-font-size: 1.0em;
+}
+
+.mui-text-field .error-icon {
+    -fx-fill: #d34336;
+    -fx-font-size: 1.0em;
+}
+
+.error-label {
+    -fx-text-fill: #d34336;
+    -fx-font-size: .75em;
+    -fx-font-weight: bold;
+}
+
+.error-icon {
+    -fx-fill: #d34336;
+    -fx-font-size: 1.0em;
+}
+
+/**************************************************************************
+ *
  * Mui Button
  *
  **************************************************************************/
@@ -28,7 +72,7 @@
 .mui-button {
     -fx-text-fill: black;
     -fx-font-size: 14px;
-    -fx-font-family: "Roboto Regular";
+    -fx-font-family: "Ubuntu", "Microsoft YaHei";
     -fx-padding: .7em .57em;
     -fx-text-alignment: center;
 }

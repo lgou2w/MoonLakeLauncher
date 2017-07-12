@@ -15,9 +15,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.download
+package com.minecraft.moonlake.launcher.task
 
-// TODO MoonLake Download Provider
-// 可能路径 http://dl.mcmoonlake.com/mc/
-
-class MoonLakeDownloadProvider: SourceDownloadProvider("http://dl.mcmoonlake.com/mc/")
+abstract class MuiVoidTask: MuiTask<Unit>()

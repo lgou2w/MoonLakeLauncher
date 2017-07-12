@@ -19,8 +19,6 @@
 
 package com.minecraft.moonlake.launcher
 
-import com.minecraft.moonlake.launcher.platform.Platform
-
 /**************************************************************************
  *
  * Main Method
@@ -28,6 +26,5 @@ import com.minecraft.moonlake.launcher.platform.Platform
  **************************************************************************/
 
 fun main(args: Array<String>) {
-    println("os.info=${Platform.getInfo()}")
-    MoonLakeLauncher.launch(args)
+//    MoonLakeLauncher.launch(args)
 }

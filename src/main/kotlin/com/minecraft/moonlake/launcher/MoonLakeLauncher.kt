@@ -17,6 +17,7 @@
 
 package com.minecraft.moonlake.launcher
 
+import com.minecraft.moonlake.launcher.platform.Platform
 import com.minecraft.moonlake.launcher.ui.Test
 import com.minecraft.moonlake.launcher.util.MuiControllerUtils
 import javafx.application.Application
@@ -31,9 +32,36 @@ class MoonLakeLauncher: Application() {
      **************************************************************************/
 
     companion object {
+
+        /**************************************************************************
+         *
+         * Public Member
+         *
+         **************************************************************************/
+
+        val version = "1.0"
+        val platform = Platform.getInfo()
+        val logger = MoonLakeLauncherLogger()
+
+        /**************************************************************************
+         *
+         * Public Method
+         *
+         **************************************************************************/
+
         fun launch(args: Array<String>) {
             launch(MoonLakeLauncher::class.java, *args)
         }
+    }
+
+    /**************************************************************************
+     *
+     * Init
+     *
+     **************************************************************************/
+
+    init {
+        printLauncher()
     }
 
     /**************************************************************************
@@ -47,5 +75,20 @@ class MoonLakeLauncher: Application() {
         stage.title = "MoonLake Launcher"
         stage.centerOnScreen()
         stage.show()
+    }
+
+    /**************************************************************************
+     *
+     * Private Implements
+     *
+     **************************************************************************/
+
+    private fun printLauncher() {
+        println()
+        println("MoonLake Launcher v$version by Month_Light, lgou2w")
+        println()
+        println("System Info: ${platform.platform} ${platform.version} x${platform.bit}")
+        println("System Total Memory Size: ${platform.totalMemory}")
+        println()
     }
 }

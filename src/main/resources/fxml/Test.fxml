@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.minecraft.moonlake.launcher.layout.MuiStackPane?>
-<?import com.minecraft.moonlake.launcher.layout.MuiFlowPane?>
-<?import com.minecraft.moonlake.launcher.layout.MuiVBox?>
 <?import com.minecraft.moonlake.launcher.control.MuiButton?>
+<?import com.minecraft.moonlake.launcher.control.MuiTextField?>
+<?import com.minecraft.moonlake.launcher.layout.MuiFlowPane?>
+<?import com.minecraft.moonlake.launcher.layout.MuiStackPane?>
+<?import com.minecraft.moonlake.launcher.layout.MuiVBox?>
+<?import com.minecraft.moonlake.launcher.validation.NumberValidator?>
 
 <MuiStackPane
         xmlns="http://javafx.com/javafx"
@@ -13,7 +15,12 @@
 
     <MuiFlowPane alignment="CENTER">
         <MuiVBox spacing="20">
-            <MuiButton type="RAISED" prefWidth="150" styleClass="mui-button-primary">Material-UI Button</MuiButton>
+            <MuiTextField promptText="提示文本" />
+            <MuiTextField promptText="提示文本" labelFloat="true" />
+            <MuiTextField promptText="请输入数字" labelFloat="true">
+                <validators><NumberValidator message="错误: 请输入数字" /></validators>
+            </MuiTextField>
+            <MuiButton fx:id="test" type="RAISED" prefWidth="100" styleClass="mui-button-primary">Button</MuiButton>
         </MuiVBox>
     </MuiFlowPane>
 

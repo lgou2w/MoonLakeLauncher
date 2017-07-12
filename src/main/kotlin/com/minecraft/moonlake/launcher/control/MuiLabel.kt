@@ -15,23 +15,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.controller
+package com.minecraft.moonlake.launcher.control
 
-import com.minecraft.moonlake.launcher.util.ClassUtils
-import javafx.fxml.FXML
-import javafx.fxml.Initializable
-import javafx.scene.layout.Pane
-import java.net.URL
-import java.util.*
+import javafx.scene.Node
+import javafx.scene.control.Label
 
-abstract class MuiController<out T: Pane>: Initializable {
+class MuiLabel: Label {
 
-    @FXML private var root: T? = null
+    /**************************************************************************
+     *
+     * Constructor
+     *
+     **************************************************************************/
 
-    protected fun root(): T
-            = root!!
-
-    override fun initialize(location: URL?, resources: ResourceBundle?) {
-        root().stylesheets.add(ClassUtils.loadResourceAsString(this::class.java, "css/mui-components.css"))
-    }
+    constructor() : super()
+    constructor(text: String?) : super(text)
+    constructor(text: String?, graphic: Node?) : super(text, graphic)
 }

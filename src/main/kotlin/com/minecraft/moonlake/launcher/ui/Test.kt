@@ -17,16 +17,38 @@
 
 package com.minecraft.moonlake.launcher.ui
 
+import com.google.gson.Gson
 import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
+import com.minecraft.moonlake.launcher.control.MuiButton
 import com.minecraft.moonlake.launcher.controller.MuiController
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
+import com.minecraft.moonlake.launcher.mc.download.MojangDownloadSource
+import com.minecraft.moonlake.launcher.mc.version.MinecraftVersionList
+import com.minecraft.moonlake.launcher.task.HttpGetRequestTask
+import javafx.fxml.FXML
 import java.net.URL
 import java.util.ResourceBundle
 
 @MuiControllerFxml(value = "fxml/Test.fxml", width = 600.0, height = 400.0)
 class Test: MuiController<MuiStackPane>() {
 
+    @FXML var test: MuiButton? = null
+
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         super.initialize(location, resources)
+
+        test!!.setOnMouseClicked {
+            val provider = MojangDownloadSource()
+            val task = object: HttpGetRequestTask(provider.getVersionListDownloadURL()) {
+                override fun succeeded(result: String) {
+                    super.succeeded(result)
+                    println()
+                    val mcVerList = Gson().fromJson(result, MinecraftVersionList::class.java)
+                    mcVerList.versions.filter { it.isRelease() }.forEach { println(it) }
+                }
+            }
+            Thread(task).start()
+            
+        }
     }
 }

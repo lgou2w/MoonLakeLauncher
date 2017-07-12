@@ -15,20 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.download
+package com.minecraft.moonlake.launcher.mc.asset
 
-open class SourceDownloadProvider(private val host: String): DownloadProvider {
-
-    fun getHost(): String
-            = host
-    override fun getLibrariesDownloadURL(): String
-            = host + "libraries"
-    override fun getVersionsDownloadURL(): String
-            = host + "versions"
-    override fun getIndexesDownloadURL(): String
-            = host + "indexes"
-    override fun getVersionListDownloadURL(): String
-            = host + "version_manifest.json"
-    override fun getAssetsDownloadURL(): String
-            = host + "assets"
+class AssetsIndex() {
 }

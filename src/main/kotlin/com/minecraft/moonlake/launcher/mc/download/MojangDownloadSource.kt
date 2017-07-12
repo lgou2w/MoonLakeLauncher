@@ -15,23 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.controller
+package com.minecraft.moonlake.launcher.mc.download
 
-import com.minecraft.moonlake.launcher.util.ClassUtils
-import javafx.fxml.FXML
-import javafx.fxml.Initializable
-import javafx.scene.layout.Pane
-import java.net.URL
-import java.util.*
+class MojangDownloadSource : DownloadSource {
 
-abstract class MuiController<out T: Pane>: Initializable {
-
-    @FXML private var root: T? = null
-
-    protected fun root(): T
-            = root!!
-
-    override fun initialize(location: URL?, resources: ResourceBundle?) {
-        root().stylesheets.add(ClassUtils.loadResourceAsString(this::class.java, "css/mui-components.css"))
-    }
+    override fun getLibrariesDownloadURL(): String
+            = "https://libraries.minecraft.net"
+    override fun getVersionsDownloadURL(): String
+            = "http://s3.amazonaws.com/Minecraft.Download/versions/"
+    override fun getIndexesDownloadURL(): String
+            = "http://s3.amazonaws.com/Minecraft.Download/indexes/"
+    override fun getVersionListDownloadURL(): String
+            = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
+    override fun getAssetsDownloadURL(): String
+            = "http://resources.download.minecraft.net/"
 }
