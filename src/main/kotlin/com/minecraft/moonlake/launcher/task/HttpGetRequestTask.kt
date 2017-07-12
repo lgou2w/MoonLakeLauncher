@@ -57,7 +57,7 @@ open class HttpGetRequestTask: MuiTask<String> {
      *
      **************************************************************************/
 
-    override fun succeeded(result: String) {
+    override fun onSucceeded(result: String) {
         updateProgress(1.0, 1.0)
         updateMessage("请求成功")
     }

@@ -27,7 +27,7 @@ abstract class MuiTask<V>: Task<V>() {
      *
      **************************************************************************/
 
-    protected open fun succeeded(result: V) {}
+    protected open fun onSucceeded(result: V) {}
 
     /**************************************************************************
      *
@@ -36,5 +36,5 @@ abstract class MuiTask<V>: Task<V>() {
      **************************************************************************/
 
     final override fun succeeded()
-            = succeeded(value)
+            = onSucceeded(value)
 }

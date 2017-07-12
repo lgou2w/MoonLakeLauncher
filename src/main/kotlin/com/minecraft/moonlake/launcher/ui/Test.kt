@@ -40,15 +40,15 @@ class Test: MuiController<MuiStackPane>() {
         test!!.setOnMouseClicked {
             val provider = MojangDownloadSource()
             val task = object: HttpGetRequestTask(provider.getVersionListDownloadURL()) {
-                override fun succeeded(result: String) {
-                    super.succeeded(result)
+                override fun onSucceeded(result: String) {
+                    super.onSucceeded(result)
                     println()
                     val mcVerList = Gson().fromJson(result, MinecraftVersionList::class.java)
                     mcVerList.versions.filter { it.isRelease() }.forEach { println(it) }
                 }
             }
             Thread(task).start()
-            
+
         }
     }
 }

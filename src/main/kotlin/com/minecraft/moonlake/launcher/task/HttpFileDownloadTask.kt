@@ -66,7 +66,7 @@ open class HttpFileDownloadTask : MuiTask<File> {
      *
      **************************************************************************/
 
-    override fun succeeded(result: File) {
+    override fun onSucceeded(result: File) {
         updateProgress(1.0, 1.0)
         updateMessage("下载成功")
     }
@@ -138,13 +138,13 @@ open class HttpFileDownloadTask : MuiTask<File> {
      *
      **************************************************************************/
 
-    fun closeStream() {
+    private fun closeStream() {
         MuiUtils.closeable(access, input)
         access = null
         input = null
     }
 
-    fun formatDownloadSpeed(lastDownloaded: Long): String {
+    private fun formatDownloadSpeed(lastDownloaded: Long): String {
         val kilobyte = (downloaded - lastDownloaded) / 1024.0
         if(kilobyte <= 1024.0)
             return "下载速度: ${MuiUtils.rounding(kilobyte)}KB/s"

@@ -56,7 +56,7 @@ open class MuiTaskList: Thread {
      *
      **************************************************************************/
 
-    protected open fun finished() {}
+    protected open fun onFinished() {}
 
     /**************************************************************************
      *
@@ -67,6 +67,6 @@ open class MuiTaskList: Thread {
     override fun run() {
         while(!queue.isEmpty())
             queue.removeAt(0).run()
-        finished()
+        onFinished()
     }
 }
