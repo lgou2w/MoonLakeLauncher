@@ -17,5 +17,40 @@
 
 package com.minecraft.moonlake.launcher.mc.asset
 
-class AssetsIndex() {
+import java.util.*
+
+/**
+ * Minecraft 版本资源 Json 对象
+ */
+data class AssetsIndex(var objects: MutableMap<String, AssetsObject>) {
+
+    /**
+     * objects : {
+     *      "minecraft/sounds/mob/stray/death2.ogg": {
+     *          "hash": "d48940aeab2d4068bd157e6810406c882503a813",
+     *          "size": 18817
+     *      },
+     *      "minecraft/sounds/mob/husk/step4.ogg": {
+     *          "hash": "70a1c99c314a134027988106a3b61b15389d5f2f",
+     *          "size": 9398
+     *      }
+     * }
+     */
+
+    fun getObjects(): Set<AssetsObject>
+            = if(objects is MutableMap) HashSet(objects.values) else Collections.emptySet()
+
+    data class AssetsObject(
+            var hash: String,
+            var size: Int) {
+
+        /**
+         * hash : d48940aeab2d4068bd157e6810406c882503a813
+         * size : 18817
+         */
+
+        @Throws(NullPointerException::class)
+        fun getLocation(): String
+                = if(hash is String) "${hash.substring(0, 2)}/$hash" else null!!
+    }
 }

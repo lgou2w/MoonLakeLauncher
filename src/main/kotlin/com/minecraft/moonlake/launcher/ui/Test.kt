@@ -22,10 +22,12 @@ import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
 import com.minecraft.moonlake.launcher.control.MuiButton
 import com.minecraft.moonlake.launcher.controller.MuiController
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
+import com.minecraft.moonlake.launcher.mc.asset.AssetsIndex
 import com.minecraft.moonlake.launcher.mc.download.MojangDownloadSource
 import com.minecraft.moonlake.launcher.mc.version.MinecraftVersionList
 import com.minecraft.moonlake.launcher.task.HttpGetRequestTask
 import javafx.fxml.FXML
+import java.io.FileReader
 import java.net.URL
 import java.util.ResourceBundle
 
@@ -38,17 +40,21 @@ class Test: MuiController<MuiStackPane>() {
         super.initialize(location, resources)
 
         test!!.setOnMouseClicked {
-            val provider = MojangDownloadSource()
-            val task = object: HttpGetRequestTask(provider.getVersionListDownloadURL()) {
-                override fun onSucceeded(result: String) {
-                    super.onSucceeded(result)
-                    println()
-                    val mcVerList = Gson().fromJson(result, MinecraftVersionList::class.java)
-                    mcVerList.versions.filter { it.isRelease() }.forEach { println(it) }
-                }
-            }
-            Thread(task).start()
+//            val provider = MojangDownloadSource()
+//            val task = object: HttpGetRequestTask(provider.getVersionListDownloadURL()) {
+//                override fun onSucceeded(result: String) {
+//                    super.onSucceeded(result)
+//                    println()
+//                    val mcVerList = Gson().fromJson(result, MinecraftVersionList::class.java)
+//                    mcVerList.versions.filter { it.isRelease() }.forEach { println(it) }
+//                }
+//            }
+//            Thread(task).start()
 
+            val path = "C:\\Users\\MoonLake\\AppData\\Roaming\\.minecraft\\assets\\indexes\\1.12.json"
+            val assets = Gson().fromJson(FileReader(path), AssetsIndex::class.java)
+            println("资源对象数量: ${assets.objects.size}")
+            assets.objects.forEach { print(it); print(" -> "); print(it.value.getLocation()); println() }
         }
     }
 }
