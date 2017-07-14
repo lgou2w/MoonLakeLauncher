@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.mc.asset
+package com.minecraft.moonlake.launcher.mc.assets
 
 import java.util.*
 

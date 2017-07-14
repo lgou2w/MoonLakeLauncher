@@ -22,10 +22,7 @@ import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
 import com.minecraft.moonlake.launcher.control.MuiButton
 import com.minecraft.moonlake.launcher.controller.MuiController
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
-import com.minecraft.moonlake.launcher.mc.asset.AssetsIndex
-import com.minecraft.moonlake.launcher.mc.download.MojangDownloadSource
-import com.minecraft.moonlake.launcher.mc.version.MinecraftVersionList
-import com.minecraft.moonlake.launcher.task.HttpGetRequestTask
+import com.minecraft.moonlake.launcher.mc.assets.AssetsIndex
 import javafx.fxml.FXML
 import java.io.FileReader
 import java.net.URL
