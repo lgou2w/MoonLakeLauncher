@@ -32,7 +32,7 @@ data class MinecraftVersion(
         var releaseTime: String,
         var time: String,
         var type: String,
-        var libraries: MutableList<Library>) {
+        var libraries: MutableList<MinecraftLibrary>) {
 
     /**
      * assetIndex : {
@@ -186,104 +186,6 @@ data class MinecraftVersion(
                  * sha1 : ef4f57b922df243d0cef096efe808c72db042149
                  * size : 877
                  * url : https://launchermeta.mojang.com/mc/log_configs/client-1.12.xml/ef4f57b922df243d0cef096efe808c72db042149/client-1.12.xml
-                 */
-            }
-        }
-    }
-
-    data class Library(
-            var name: String,
-            var downloads: Download,
-            var extract: Extract,
-            var natives: Native,
-            var rules: List<Rule>) {
-
-        /**
-         * name : com.mojang:patchy:1.1
-         * downloads : {
-         *      "artifact":{
-         *          "size":15817,
-         *          "sha1":"aef610b34a1be37fa851825f12372b78424d8903",
-         *          "path":"com/mojang/patchy/1.1/patchy-1.1.jar",
-         *          "url":"https://libraries.minecraft.net/com/mojang/patchy/1.1/patchy-1.1.jar"
-         *      }
-         * }
-         * rules : [{
-         *      "action":"allow"
-         * },
-         * {
-         *      "action":"disallow",
-         * "os":{
-         *      "name":"osx"
-         * }
-         * }]
-         * extract : {
-         *      "exclude":[
-         *          "META-INF/"
-         *      ]
-         * }
-         * natives : {
-         *      "linux":"natives-linux",
-         *      "osx":"natives-osx",
-         *      "windows":"natives-windows"
-         * }
-         */
-
-        data class Download(var artifact: Artifact) {
-
-            /**
-             * artifact : {
-             *      "size":15817,
-             *      "sha1":"aef610b34a1be37fa851825f12372b78424d8903",
-             *      "path":"com/mojang/patchy/1.1/patchy-1.1.jar",
-             *      "url":"https://libraries.minecraft.net/com/mojang/patchy/1.1/patchy-1.1.jar"
-             * }
-             */
-
-            data class Artifact(
-                    var size: Int,
-                    var sha1: String,
-                    var path: String,
-                    var url: String) {
-
-                /**
-                 * size : 15817
-                 * sha1 : aef610b34a1be37fa851825f12372b78424d8903
-                 * path : com/mojang/patchy/1.1/patchy-1.1.jar
-                 * url : https://libraries.minecraft.net/com/mojang/patchy/1.1/patchy-1.1.jar
-                 */
-            }
-        }
-
-        data class Extract(var exclude: List<String>)
-
-        data class Native(
-                var linux: String,
-                var osx: String,
-                var windows: String) {
-
-            /**
-             * linux : natives-linux
-             * osx : natives-osx
-             * windows : natives-windows
-             */
-        }
-
-        data class Rule(
-                var action: String,
-                var os: Os) {
-
-            /**
-             * action : allow
-             * os : {
-             *      "name":"osx"
-             * }
-             */
-
-            data class Os(var name: String) {
-
-                /**
-                 * name : osx
                  */
             }
         }

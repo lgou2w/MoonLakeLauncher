@@ -17,41 +17,16 @@
 
 package com.minecraft.moonlake.launcher.ui
 
-import com.google.gson.Gson
 import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
-import com.minecraft.moonlake.launcher.control.MuiButton
 import com.minecraft.moonlake.launcher.controller.MuiController
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
-import com.minecraft.moonlake.launcher.mc.assets.AssetsIndex
-import javafx.fxml.FXML
-import java.io.FileReader
 import java.net.URL
 import java.util.ResourceBundle
 
 @MuiControllerFxml(value = "fxml/Test.fxml", width = 600.0, height = 400.0)
 class Test: MuiController<MuiStackPane>() {
 
-    @FXML var test: MuiButton? = null
-
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         super.initialize(location, resources)
-
-        test!!.setOnMouseClicked {
-//            val provider = MojangDownloadSource()
-//            val task = object: HttpGetRequestTask(provider.getVersionListDownloadURL()) {
-//                override fun onSucceeded(result: String) {
-//                    super.onSucceeded(result)
-//                    println()
-//                    val mcVerList = Gson().fromJson(result, MinecraftVersionList::class.java)
-//                    mcVerList.versions.filter { it.isRelease() }.forEach { println(it) }
-//                }
-//            }
-//            Thread(task).start()
-
-            val path = "C:\\Users\\MoonLake\\AppData\\Roaming\\.minecraft\\assets\\indexes\\1.12.json"
-            val assets = Gson().fromJson(FileReader(path), AssetsIndex::class.java)
-            println("资源对象数量: ${assets.objects.size}")
-            assets.objects.forEach { print(it); print(" -> "); print(it.value.getLocation()); println() }
-        }
     }
 }

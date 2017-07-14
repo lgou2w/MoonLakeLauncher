@@ -20,7 +20,7 @@
             <MuiTextField promptText="请输入数字" labelFloat="true">
                 <validators><NumberValidator message="错误: 请输入数字" /></validators>
             </MuiTextField>
-            <MuiButton fx:id="test" type="RAISED" prefWidth="100" styleClass="mui-button-primary">Button</MuiButton>
+            <MuiButton type="RAISED" prefWidth="100" styleClass="mui-button-primary">Button</MuiButton>
         </MuiVBox>
     </MuiFlowPane>
 

@@ -19,6 +19,10 @@
 
 package com.minecraft.moonlake.launcher
 
+import com.google.gson.Gson
+import com.minecraft.moonlake.launcher.mc.version.MinecraftVersion
+import java.io.FileReader
+
 /**************************************************************************
  *
  * Main Method
@@ -26,5 +30,9 @@ package com.minecraft.moonlake.launcher
  **************************************************************************/
 
 fun main(args: Array<String>) {
-    MoonLakeLauncher.launch(args)
+    //MoonLakeLauncher.launch(args)
+
+    val path = "C:\\Users\\MoonLake\\AppData\\Roaming\\.minecraft\\versions\\1.11.2\\1.11.2.json"
+    val mcVer = Gson().fromJson(FileReader(path), MinecraftVersion::class.java)
+    println(mcVer)
 }
