@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.minecraft.moonlake.launcher.platform
+package com.minecraft.moonlake.launcher.system
 
 import com.sun.management.OperatingSystemMXBean
 import java.lang.management.ManagementFactory
@@ -85,7 +85,7 @@ enum class Platform(private val separator: Char, private val osName: String) {
                 return OSX
             return UNKNOWN
         }
-        fun getBit(): Platform.Bit {
+        fun getBit(): Bit {
             return if(System.getProperty("os.arch").contains("64")) Bit.BIT64 else Bit.BIT32
         }
         fun getVersion(): String {

@@ -1,27 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.minecraft.moonlake.launcher.control.MuiButton?>
-<?import com.minecraft.moonlake.launcher.control.MuiTextField?>
-<?import com.minecraft.moonlake.launcher.layout.MuiFlowPane?>
-<?import com.minecraft.moonlake.launcher.layout.MuiStackPane?>
-<?import com.minecraft.moonlake.launcher.layout.MuiVBox?>
+<?import com.minecraft.moonlake.launcher.control.*?>
+<?import com.minecraft.moonlake.launcher.layout.*?>
+<?import com.minecraft.moonlake.launcher.svg.MuiResourceSVGGlyph?>
 <?import com.minecraft.moonlake.launcher.validation.NumberValidator?>
+<?import com.minecraft.moonlake.launcher.validation.RegexValidator?>
 
-<MuiStackPane
+<MuiBorderPane
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         fx:id="root"
         fx:controller="com.minecraft.moonlake.launcher.ui.Test">
 
-    <MuiFlowPane alignment="CENTER">
-        <MuiVBox spacing="20">
-            <MuiTextField promptText="提示文本" />
-            <MuiTextField promptText="提示文本" labelFloat="true" />
-            <MuiTextField promptText="请输入数字" labelFloat="true">
-                <validators><NumberValidator message="错误: 请输入数字" /></validators>
-            </MuiTextField>
-            <MuiButton type="RAISED" prefWidth="100" styleClass="mui-button-primary">Button</MuiButton>
-        </MuiVBox>
-    </MuiFlowPane>
+    <top>
+        <MuiNavbar prefHeight="50" onMousePressed="#onNavbarPressed" onMouseDragged="#onNavbarDragged">
+            <left>
+                <MuiFlowPane alignment="CENTER_LEFT" prefWidth="300" prefHeight="50" style="-fx-padding: 5 10 5 15">
+                    <MuiResourceImage url="image/icon-x32.png" onMouseDragged="#onConsume"/>
+                </MuiFlowPane>
+            </left>
+            <right>
+                <MuiFlowPane alignment="CENTER_RIGHT" prefWidth="120" prefHeight="50" hgap="15" style="-fx-padding: 0 15 0 0;">
+                    <MuiResourceSVGGlyph url="svg/window-minimize.svg" sizeRatio="10" fill="rgba(255, 255, 255, .65)" enterFill="white" onMouseClicked="#onMinimizeClicked" onMouseDragged="#onConsume" />
+                    <MuiResourceSVGGlyph url="svg/window-maximize.svg" sizeRatio="10" fill="rgba(255, 255, 255, .65)" enterFill="white" onMouseClicked="#onMaximizeClicked" onMouseDragged="#onConsume" />
+                    <MuiResourceSVGGlyph url="svg/window-close.svg" sizeRatio="10" fill="rgba(255, 255, 255, .65)" enterFill="white" onMouseClicked="#onCloseClicked" onMouseDragged="#onConsume" />
+                </MuiFlowPane>
+            </right>
+        </MuiNavbar>
+    </top>
 
-</MuiStackPane>
+    <center>
+        <MuiFlowPane alignment="CENTER">
+            <MuiVBox spacing="30">
+                <MuiTextField promptText="提示文本" />
+                <MuiTextField promptText="请输入用户名" labelFloat="true">
+                    <validators><RegexValidator message="错误: 不正确的用户名. 格式: ${value}" value="^([a-zA-Z0-9_]{3,16})$" /></validators>
+                </MuiTextField>
+                <MuiTextField promptText="请输入数字" labelFloat="true">
+                    <validators><NumberValidator message="错误: 请输入数字." /></validators>
+                </MuiTextField>
+                <MuiButton type="RAISED" prefWidth="100" styleClass="mui-button-primary">Button</MuiButton>
+            </MuiVBox>
+        </MuiFlowPane>
+    </center>
+
+</MuiBorderPane>

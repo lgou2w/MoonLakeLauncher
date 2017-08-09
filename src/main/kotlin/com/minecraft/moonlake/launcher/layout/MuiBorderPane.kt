@@ -15,16 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:JvmName("Main")
+package com.minecraft.moonlake.launcher.layout
 
-package com.minecraft.moonlake.launcher
+import javafx.scene.Node
+import javafx.scene.layout.BorderPane
 
-/**************************************************************************
- *
- * Main Method
- *
- **************************************************************************/
+class MuiBorderPane: BorderPane {
 
-fun main(args: Array<String>) {
-    MoonLakeLauncher.launch(args)
+    constructor() : super()
+    constructor(center: Node?) : super(center)
+    constructor(center: Node?, top: Node?, right: Node?, bottom: Node?, left: Node?) : super(center, top, right, bottom, left)
+
+    init {
+    }
 }

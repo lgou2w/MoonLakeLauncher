@@ -24,6 +24,7 @@ import com.minecraft.moonlake.launcher.layout.MuiHBox
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
 import com.minecraft.moonlake.launcher.util.MuiUtils
 import com.minecraft.moonlake.launcher.validation.ValidatorBase
+import com.minecraft.moonlake.launcher.validation.ValidatorValuable
 import com.sun.javafx.scene.control.skin.TextFieldSkin
 import javafx.animation.*
 import javafx.beans.binding.Bindings
@@ -108,9 +109,9 @@ class MuiTextFieldSkin: TextFieldSkin {
         focusedLine.transforms.add(scale)
         focusedLine.background = Background(BackgroundFill(muiTextField.getFocusColor(), CornerRadii.EMPTY, Insets.EMPTY))
 
-        errorContainer.children.setAll(MuiStackPane(errorLabel), errorIcon)
+        errorContainer.children.setAll(errorIcon, MuiStackPane(errorLabel))
         errorContainer.alignment = Pos.CENTER_LEFT
-        errorContainer.spacing = 8.0
+        errorContainer.spacing = 2.0
         errorContainer.padding = Insets(4.0, .0, .0, .0)
         errorContainer.isVisible = false
         errorContainer.opacity = .0
@@ -446,7 +447,11 @@ class MuiTextFieldSkin: TextFieldSkin {
     }
 
     private fun showError(validator: ValidatorBase) {
-        errorLabel.text = validator.getMessage()
+        if(validator is ValidatorValuable) {
+            errorLabel.text = validator.getMessage().replace("\${value}", validator.getValue())
+        } else {
+            errorLabel.text = validator.getMessage()
+        }
         val icon = validator.getIcon()
         errorIcon.children.clear()
         if(icon is Node) {

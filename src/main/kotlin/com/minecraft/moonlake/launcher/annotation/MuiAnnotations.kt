@@ -19,4 +19,4 @@ package com.minecraft.moonlake.launcher.annotation
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class MuiControllerFxml(val value: String, val width: Double = -1.0, val height: Double = -1.0)
+annotation class MuiControllerFXML(val value: String, val width: Double = -1.0, val height: Double = -1.0)

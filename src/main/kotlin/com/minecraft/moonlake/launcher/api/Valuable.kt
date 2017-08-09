@@ -15,16 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:JvmName("Main")
+package com.minecraft.moonlake.launcher.api
 
-package com.minecraft.moonlake.launcher
+interface Valuable<out T> {
 
-/**************************************************************************
- *
- * Main Method
- *
- **************************************************************************/
-
-fun main(args: Array<String>) {
-    MoonLakeLauncher.launch(args)
+    fun getValue(): T
 }

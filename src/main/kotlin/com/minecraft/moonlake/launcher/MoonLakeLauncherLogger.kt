@@ -37,4 +37,8 @@ class MoonLakeLauncherLogger {
             = log("WARN", message)
     fun severe(message: String)
             = log("SEVERE", message)
+    fun error(message: String, ex: Throwable? = null) {
+        log("ERROR", "[Exception] $message${if(ex != null) ": " + ex.message else ""}")
+        ex?.printStackTrace(System.out)
+    }
 }

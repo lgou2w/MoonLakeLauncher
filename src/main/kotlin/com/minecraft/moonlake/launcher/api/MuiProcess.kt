@@ -15,16 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:JvmName("Main")
+package com.minecraft.moonlake.launcher.api
 
-package com.minecraft.moonlake.launcher
+interface MuiProcess {
 
-/**************************************************************************
- *
- * Main Method
- *
- **************************************************************************/
+    fun startupCommands(): List<String>
 
-fun main(args: Array<String>) {
-    MoonLakeLauncher.launch(args)
+    fun exitCode(): Int
+
+    fun raw(): Process
+
+    fun isRunning(): Boolean
+
+    fun waitFor(): Int
+
+    fun stop()
 }

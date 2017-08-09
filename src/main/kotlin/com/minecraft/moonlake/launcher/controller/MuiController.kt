@@ -18,6 +18,7 @@
 package com.minecraft.moonlake.launcher.controller
 
 import com.minecraft.moonlake.launcher.util.ClassUtils
+import javafx.event.Event
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.layout.Pane
@@ -33,5 +34,13 @@ abstract class MuiController<out T: Pane>: Initializable {
 
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         root().stylesheets.add(ClassUtils.loadResourceAsString(this::class.java, "css/mui-components.css"))
+    }
+
+    /**
+     * Consume event
+     */
+    @FXML
+    open fun onConsume(event: Event) {
+        event.consume()
     }
 }

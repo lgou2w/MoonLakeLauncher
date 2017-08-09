@@ -17,14 +17,15 @@
 
 package com.minecraft.moonlake.launcher.ui
 
-import com.minecraft.moonlake.launcher.annotation.MuiControllerFxml
-import com.minecraft.moonlake.launcher.controller.MuiController
+import com.minecraft.moonlake.launcher.annotation.MuiControllerFXML
+import com.minecraft.moonlake.launcher.controller.MuiStageController
 import com.minecraft.moonlake.launcher.layout.MuiStackPane
+import javafx.stage.Stage
 import java.net.URL
 import java.util.ResourceBundle
 
-@MuiControllerFxml(value = "fxml/Test.fxml", width = 600.0, height = 400.0)
-class Test: MuiController<MuiStackPane>() {
+@MuiControllerFXML(value = "fxml/Test.fxml", width = 600.0, height = 400.0)
+class Test: MuiStageController<Stage, MuiStackPane>() {
 
     override fun initialize(location: URL?, resources: ResourceBundle?) {
         super.initialize(location, resources)

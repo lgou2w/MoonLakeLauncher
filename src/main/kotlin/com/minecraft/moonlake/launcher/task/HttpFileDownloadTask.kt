@@ -100,15 +100,13 @@ open class HttpFileDownloadTask : MuiTask<File> {
             downloaded = 0L
             input = connection.inputStream
             access = RandomAccessFile(tmp, "rw")
-            var lastDownloaded = 0L
+            val buffer: ByteArray = ByteArray(4096)
             var lastTime = System.currentTimeMillis()
-            while (true) {
-                val buffer: ByteArray = ByteArray(4096)
-                val read = input!!.read(buffer)
-                if(read == -1)
-                    break
-                access!!.write(buffer, 0, read)
-                downloaded += read
+            var lastDownloaded = 0L
+            var length = 0
+            while (input!!.read(buffer).apply { length = this } != -1) {
+                access!!.write(buffer, 0, length)
+                downloaded += length
                 val now = System.currentTimeMillis()
                 if(now - lastTime >= 1000) {
                     updateProgress(downloaded, contentLength)

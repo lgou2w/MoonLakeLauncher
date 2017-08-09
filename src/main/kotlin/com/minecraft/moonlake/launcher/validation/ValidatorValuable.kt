@@ -15,16 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-@file:JvmName("Main")
+package com.minecraft.moonlake.launcher.validation
 
-package com.minecraft.moonlake.launcher
+interface ValidatorValuable {
 
-/**************************************************************************
- *
- * Main Method
- *
- **************************************************************************/
-
-fun main(args: Array<String>) {
-    MoonLakeLauncher.launch(args)
+    /**
+     * ValidatorBase: Will replace $ {value} in the message with this value
+     */
+    fun getValue(): String
 }

@@ -17,11 +17,14 @@
 
 package com.minecraft.moonlake.launcher
 
-import com.minecraft.moonlake.launcher.platform.Platform
+import com.google.gson.GsonBuilder
+import com.minecraft.moonlake.launcher.controller.MuiControllerUtils
+import com.minecraft.moonlake.launcher.system.Platform
 import com.minecraft.moonlake.launcher.ui.Test
-import com.minecraft.moonlake.launcher.util.MuiControllerUtils
+import com.minecraft.moonlake.launcher.util.MuiUtils
 import javafx.application.Application
 import javafx.stage.Stage
+import javafx.stage.StageStyle
 
 class MoonLakeLauncher: Application() {
 
@@ -42,6 +45,7 @@ class MoonLakeLauncher: Application() {
         val version = "1.0"
         val platform = Platform.getInfo()
         val logger = MoonLakeLauncherLogger()
+        val gson = GsonBuilder().setPrettyPrinting().create()
 
         /**************************************************************************
          *
@@ -53,6 +57,14 @@ class MoonLakeLauncher: Application() {
             launch(MoonLakeLauncher::class.java, *args)
         }
     }
+
+    /**************************************************************************
+     *
+     * Private Member
+     *
+     **************************************************************************/
+
+    private var primaryStage: Stage? = null
 
     /**************************************************************************
      *
@@ -70,12 +82,19 @@ class MoonLakeLauncher: Application() {
      *
      **************************************************************************/
 
-    override fun start(stage: Stage) {
-        stage.scene = MuiControllerUtils.loadControllerScene(Test::class.java)
-        stage.title = "MoonLake Launcher"
-        stage.centerOnScreen()
-        stage.show()
+    override fun start(primaryStage: Stage) {
+        this.primaryStage = MuiUtils.createMuiStage(primaryStage, Test::class.java, "MoonLake Launcher", StageStyle.TRANSPARENT)
+        this.primaryStage().show()
     }
+
+    /**************************************************************************
+     *
+     * Public Method
+     *
+     **************************************************************************/
+
+    fun primaryStage(): Stage
+            = primaryStage!!
 
     /**************************************************************************
      *

@@ -17,10 +17,8 @@
 
 package com.minecraft.moonlake.launcher.mc.download
 
-open class HostDownloadSource(private val host: String): DownloadSource {
+open class HostDownloadSource(val host: String): DownloadSource {
 
-    fun getHost(): String
-            = host
     override fun getLibrariesDownloadURL(): String
             = host + "libraries"
     override fun getVersionsDownloadURL(): String
